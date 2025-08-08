@@ -1,0 +1,161 @@
+/*
+  JNTU VIRTUAL LABS - LAB PAGE STYLES
+  Theme: Cosmic Glow
+*/
+
+:root {
+    --bg-color: #0c0a18;
+    --primary-color: #8a2be2;
+    --secondary-color: #4169e1;
+    --text-primary: #f0f0f8;
+    --text-secondary: #a0a0c0;
+    --card-bg: rgba(20, 16, 40, 0.6);
+    --card-border: rgba(138, 43, 226, 0.2);
+    --card-hover-border: rgba(138, 43, 226, 0.7);
+    --font-family: 'Inter', sans-serif;
+}
+
+/* --- GLOBAL STYLES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.7;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* --- HEADER --- */
+.lab-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: slide-down 0.8s ease-out;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+    color: var(--text-primary);
+    transform: translateX(-5px);
+}
+
+.lab-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lab-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+/* --- EXPERIMENT LIST --- */
+.experiment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.experiment-list li {
+    margin-bottom: 1.5rem;
+    animation: slide-up 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+/* Staggered animation delay */
+.experiment-list li:nth-child(1) { animation-delay: 0.1s; }
+.experiment-list li:nth-child(2) { animation-delay: 0.2s; }
+.experiment-list li:nth-child(3) { animation-delay: 0.3s; }
+.experiment-list li:nth-child(4) { animation-delay: 0.4s; }
+.experiment-list li:nth-child(5) { animation-delay: 0.5s; }
+
+
+.experiment-list a {
+    display: block;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.experiment-list a:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--card-hover-border);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.experiment-list h3 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.experiment-list p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 50px;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
