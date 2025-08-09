@@ -3,60 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Basic Electrical Engineering Lab - Virtual experiments for circuit laws, theorems, and motor characteristics. Access interactive simulations for JNTU R25 curriculum.">
+    <meta name="keywords" content="Basic Electrical Engineering, Virtual Lab, KVL, KCL, Thevenin, Norton, RLC Circuit, DC Motor, JNTU">
     <title>BEE Lab | JNTU Virtual Labs</title>
-    <link rel="stylesheet" href="style-labs.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style-lab.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.js" as="script">
 </head>
 <body>
     <div class="content-wrapper">
         <header class="lab-header">
-            <a href="index.html" class="back-button">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <a href="index.html" class="back-button" aria-label="Back to home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 Back to Home
             </a>
             <h1 class="lab-title">Basic Electrical Engineering Lab</h1>
-            <p class="lab-subtitle">Click on an experiment to open the virtual lab environment.</p>
+            <p class="lab-subtitle">Verify circuit laws and theorems like KVL, KCL, and Thevenin's with virtual components</p>
+            <div class="lab-stats">
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Experiments</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Virtual</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
         </header>
 
         <main class="container">
+            <div class="experiment-header">
+                <h2>Available Experiments</h2>
+                <p>Click on any experiment to open the virtual lab environment</p>
+            </div>
+            
             <ul class="experiment-list">
                 <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=75&sim=217&cnt=4" target="_blank">
-                        <h3>Experiment 1: Verification of KVL and KCL</h3>
-                        <p>Verify Kirchhoff’s Voltage and Current Laws in a DC circuit.</p>
+                    <a href="https://vlab.co.in/?sub=1&brch=75&sim=217&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Verification of KVL and KCL</h3>
+                            <p>Verify Kirchhoff's Voltage and Current Laws in a DC circuit with interactive measurements.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty easy">Easy</span>
+                                <span class="duration">30 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M5 12H3"></path>
+                                <path d="M21 12h-2"></path>
+                                <path d="m18.36 5.64-.95.96"></path>
+                                <path d="m6.6 17.41-.96.95"></path>
+                                <path d="m18.36 18.36-.95-.95"></path>
+                                <path d="m6.6 6.6-.96-.95"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                            </svg>
+                        </div>
                     </a>
                 </li>
                 <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=75&sim=331&cnt=4" target="_blank">
-                        <h3>Thevenin's & Norton's Theorem</h3>
-                        <p>To verify Thevenin's and Norton's theorems for a given circuit.</p>
+                    <a href="https://vlab.co.in/?sub=1&brch=75&sim=331&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Thevenin's & Norton's Theorem</h3>
+                            <p>To verify Thevenin's and Norton's theorems for a given circuit network.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">45 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M5 12H3"></path>
+                                <path d="M21 12h-2"></path>
+                                <path d="m18.36 5.64-.95.96"></path>
+                                <path d="m6.6 17.41-.96.95"></path>
+                                <path d="m18.36 18.36-.95-.95"></path>
+                                <path d="m6.6 6.6-.96-.95"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 16a4 4 0 0 1-4-4h8a4 4 0 0 1-4 4Z"></path>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://vlab.co.in/?sub=3&brch=292&sim=1576&cnt=4" target="_blank">
-                        <h3>Transient Response of RL & RC Circuits</h3>
-                        <p>To study the transient response of series RL and RC circuits for DC excitation.</p>
+                <li>
+                    <a href="https://vlab.co.in/?sub=3&brch=292&sim=1576&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Transient Response of RL & RC Circuits</h3>
+                            <p>To study the transient response of series RL and RC circuits for DC excitation.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">40 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M5 12H3"></path>
+                                <path d="M21 12h-2"></path>
+                                <path d="m18.36 5.64-.95.96"></path>
+                                <path d="m6.6 17.41-.96.95"></path>
+                                <path d="m18.36 18.36-.95-.95"></path>
+                                <path d="m6.6 6.6-.96-.95"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=75&sim=333&cnt=4" target="_blank">
-                        <h3>Resonance in RLC Circuit</h3>
-                        <p>To study the phenomenon of resonance in a series RLC circuit.</p>
+                <li>
+                    <a href="https://vlab.co.in/?sub=1&brch=75&sim=333&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Resonance in RLC Circuit</h3>
+                            <p>To study the phenomenon of resonance in a series RLC circuit and frequency response.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty hard">Hard</span>
+                                <span class="duration">50 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M5 12H3"></path>
+                                <path d="M21 12h-2"></path>
+                                <path d="m18.36 5.64-.95.96"></path>
+                                <path d="m6.6 17.41-.96.95"></path>
+                                <path d="m18.36 18.36-.95-.95"></path>
+                                <path d="m6.6 6.6-.96-.95"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://vlab.co.in/?sub=2&brch=192&sim=348&cnt=4" target="_blank">
-                        <h3>DC Shunt Motor Characteristics</h3>
-                        <p>To study the performance characteristics of a DC Shunt Motor.</p>
+                <li>
+                    <a href="https://vlab.co.in/?sub=2&brch=192&sim=348&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>DC Shunt Motor Characteristics</h3>
+                            <p>To study the performance characteristics of a DC Shunt Motor under various load conditions.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty hard">Hard</span>
+                                <span class="duration">60 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M5 12H3"></path>
+                                <path d="M21 12h-2"></path>
+                                <path d="m18.36 5.64-.95.96"></path>
+                                <path d="m6.6 17.41-.96.95"></path>
+                                <path d="m18.36 18.36-.95-.95"></path>
+                                <path d="m6.6 6.6-.96-.95"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 16a4 4 0 0 1-4-4h8a4 4 0 0 1-4 4Z"></path>
+                            </svg>
+                        </div>
                     </a>
                 </li>
             </ul>
         </main>
 
         <footer class="site-footer">
-            <p>&copy; 2025 JNTU Virtual Labs. Built by JNTUH UCES Cyber Security students.</p>
+            <div class="footer-content">
+                <p>&copy; 2025 JNTU Virtual Labs. Built with ❤️ by JNTUH UCES Cyber Security students.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
         </footer>
     </div>
     <script src="script.js"></script>

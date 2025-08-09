@@ -3,60 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Python Programming Laboratory - Practice with data types, control flow, functions, and file operations in Python. Access interactive programming environment for JNTU R25 curriculum.">
+    <meta name="keywords" content="Python Programming, Virtual Lab, Data Types, Control Flow, Functions, File Operations, JNTU">
     <title>Python Lab | JNTU Virtual Labs</title>
-    <link rel="stylesheet" href="style-labs.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style-lab.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.js" as="script">
 </head>
 <body>
     <div class="content-wrapper">
         <header class="lab-header">
-            <a href="index.html" class="back-button">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <a href="index.html" class="back-button" aria-label="Back to home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 Back to Home
             </a>
             <h1 class="lab-title">Python Programming Laboratory</h1>
-            <p class="lab-subtitle">Click on a task to open an online Python interpreter.</p>
+            <p class="lab-subtitle">Practice with data types, control flow, functions, and file operations in Python</p>
+            <div class="lab-stats">
+                <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Topics</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Online</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
         </header>
 
         <main class="container">
+            <div class="experiment-header">
+                <h2>Programming Topics</h2>
+                <p>Click on any topic to open the online Python compiler and start coding</p>
+            </div>
+            
             <ul class="experiment-list">
                 <li>
-                    <a href="https://replit.com/languages/python" target="_blank">
-                        <h3>Basics & Control Flow</h3>
-                        <p>Practice with the interpreter, basic data types, and control structures like if/else and loops.</p>
+                    <a href="https://www.online-python.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Data Types & Variables</h3>
+                            <p>Practice with Python data types including integers, floats, strings, lists, tuples, and dictionaries.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty easy">Easy</span>
+                                <span class="duration">25 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
                 <li>
-                    <a href="https://replit.com/languages/python" target="_blank">
-                        <h3>Functions & Lists</h3>
-                        <p>Implement functions for problems like GCD and palindrome checks. Practice list operations.</p>
+                    <a href="https://www.online-python.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Control Flow</h3>
+                            <p>Implement conditional statements (if, elif, else) and loops (for, while) in Python.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty easy">Easy</span>
+                                <span class="duration">30 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://replit.com/languages/python" target="_blank">
-                        <h3>Strings & Dictionaries</h3>
-                        <p>Practice with string manipulation and dictionary operations like inverting content.</p>
+                <li>
+                    <a href="https://www.online-python.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Functions & Modules</h3>
+                            <p>Create and use functions, understand scope, and work with Python modules and packages.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">40 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://replit.com/languages/python" target="_blank">
-                        <h3>Matrices & Modules</h3>
-                        <p>Implement matrix operations and learn how to construct and use custom modules.</p>
+                <li>
+                    <a href="https://www.online-python.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>File Operations</h3>
+                            <p>Read from and write to files, handle different file formats, and manage file streams.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">35 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://replit.com/languages/python" target="_blank">
-                        <h3>Exception Handling & File I/O</h3>
-                        <p>Use try-except blocks for error handling and perform file merging and reading operations.</p>
+                <li>
+                    <a href="https://www.online-python.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Object-Oriented Programming</h3>
+                            <p>Create classes, objects, inheritance, and understand OOP concepts in Python.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty hard">Hard</span>
+                                <span class="duration">50 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.online-python.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Exception Handling</h3>
+                            <p>Implement try-except blocks, handle different types of exceptions, and create custom exceptions.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">30 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
             </ul>
         </main>
 
         <footer class="site-footer">
-            <p>&copy; 2025 JNTU Virtual Labs. Built by JNTUH UCES Cyber Security students.</p>
+            <div class="footer-content">
+                <p>&copy; 2025 JNTU Virtual Labs. Built with ❤️ by JNTUH UCES Cyber Security students.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
         </footer>
     </div>
     <script src="script.js"></script>

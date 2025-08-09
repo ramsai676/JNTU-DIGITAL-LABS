@@ -3,60 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IT Workshop - Explore essential IT tools, hardware, and networking concepts with hands-on simulations. Access interactive learning environment for JNTU R25 curriculum.">
+    <meta name="keywords" content="IT Workshop, Virtual Lab, Hardware, Networking, IT Tools, Computer Fundamentals, JNTU">
     <title>IT Workshop | JNTU Virtual Labs</title>
-    <link rel="stylesheet" href="style-labs.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style-lab.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.js" as="script">
 </head>
 <body>
     <div class="content-wrapper">
         <header class="lab-header">
-            <a href="index.html" class="back-button">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <a href="index.html" class="back-button" aria-label="Back to home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 Back to Home
             </a>
             <h1 class="lab-title">IT Workshop</h1>
-            <p class="lab-subtitle">Resources and guides for essential IT skills.</p>
+            <p class="lab-subtitle">Explore essential IT tools, hardware, and networking concepts with hands-on simulations</p>
+            <div class="lab-stats">
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Modules</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Virtual</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
         </header>
 
         <main class="container">
+            <div class="experiment-header">
+                <h2>Workshop Modules</h2>
+                <p>Click on any module to access the interactive learning environment</p>
+            </div>
+            
             <ul class="experiment-list">
                 <li>
-                    <a href="https://edu.gcfglobal.org/en/computerbasics/inside-a-computer/1/" target="_blank">
-                        <h3>Task 1: PC Hardware & Assembly</h3>
-                        <p>Identify peripherals, CPU components, and practice PC disassembly and assembly.</p>
+                    <a href="https://www.virtualbox.org/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Computer Hardware & Assembly</h3>
+                            <p>Learn about computer components, CPU, RAM, storage devices, and virtual assembly procedures.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty easy">Easy</span>
+                                <span class="duration">45 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
                     </a>
                 </li>
                 <li>
-                    <a href="https://edu.gcfglobal.org/en/internetbasics/" target="_blank">
-                        <h3>Task 2: Internet & WWW</h3>
-                        <p>Learn to configure network settings, customize browsers, and practice safe web surfing.</p>
+                    <a href="https://www.virtualbox.org/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Operating System Installation</h3>
+                            <p>Practice installing and configuring different operating systems in a virtual environment.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">60 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://edu.gcfglobal.org/en/word/" target="_blank">
-                        <h3>Task 3: Word Processing</h3>
-                        <p>Create professional documents, certificates, and newsletters using Word.</p>
+                <li>
+                    <a href="https://www.virtualbox.org/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Networking Fundamentals</h3>
+                            <p>Understand network topologies, IP addressing, subnetting, and basic network configuration.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">50 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://edu.gcfglobal.org/en/excel/" target="_blank">
-                        <h3>Task 4: Spreadsheets (Excel)</h3>
-                        <p>Create schedulers, calculate GPA, and learn advanced functions like VLOOKUP.</p>
+                <li>
+                    <a href="https://www.virtualbox.org/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Software Installation & Configuration</h3>
+                            <p>Learn to install, configure, and troubleshoot various software applications and utilities.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty easy">Easy</span>
+                                <span class="duration">40 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://edu.gcfglobal.org/en/powerpoint/" target="_blank">
-                        <h3>Task 5: Presentations (PowerPoint)</h3>
-                        <p>Learn to create interactive presentations with master layouts, media, and hyperlinks.</p>
+                <li>
+                    <a href="https://www.virtualbox.org/" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>System Maintenance & Troubleshooting</h3>
+                            <p>Practice system maintenance tasks, performance optimization, and troubleshooting techniques.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty hard">Hard</span>
+                                <span class="duration">75 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
                     </a>
                 </li>
             </ul>
         </main>
 
         <footer class="site-footer">
-            <p>&copy; 2025 JNTU Virtual Labs. Built by JNTUH UCES Cyber Security students.</p>
+            <div class="footer-content">
+                <p>&copy; 2025 JNTU Virtual Labs. Built with ❤️ by JNTUH UCES Cyber Security students.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
         </footer>
     </div>
     <script src="script.js"></script>

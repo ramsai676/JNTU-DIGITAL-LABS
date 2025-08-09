@@ -3,66 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Problem Solving Lab (PPS) - Write, compile, and test your C programs in a powerful online IDE with real-time feedback. Access interactive programming environment for JNTU R25 curriculum.">
+    <meta name="keywords" content="Problem Solving, C Programming, Virtual Lab, Online Compiler, Arrays, Pointers, Functions, File Handling, Sorting, Searching, JNTU">
     <title>PPS Lab | JNTU Virtual Labs</title>
-    <link rel="stylesheet" href="style-labs.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style-lab.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.js" as="script">
 </head>
 <body>
     <div class="content-wrapper">
         <header class="lab-header">
-            <a href="index.html" class="back-button">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <a href="index.html" class="back-button" aria-label="Back to home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 Back to Home
             </a>
             <h1 class="lab-title">Problem Solving Lab (PPS)</h1>
-            <p class="lab-subtitle">Click on a task to open an online C compiler.</p>
+            <p class="lab-subtitle">Write, compile, and test your C programs in a powerful online IDE with real-time feedback</p>
+            <div class="lab-stats">
+                <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Topics</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Online</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
         </header>
 
         <main class="container">
+            <div class="experiment-header">
+                <h2>Programming Topics</h2>
+                <p>Click on any topic to open the online C compiler and start coding</p>
+            </div>
+            
             <ul class="experiment-list">
                 <li>
-                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank">
-                        <h3>Simple Numeric Problems</h3>
-                        <p>Practice with operators, data types, and basic I/O operations.</p>
+                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Simple Numeric Problems</h3>
+                            <p>Practice with operators, data types, and basic I/O operations in C programming.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty easy">Easy</span>
+                                <span class="duration">20 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank">
-                        <h3>Expression Evaluation</h3>
-                        <p>Implement programs using conditional statements (if, switch) and loops (for, while).</p>
+                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Expression Evaluation</h3>
+                            <p>Implement programs using conditional statements (if, switch) and loops (for, while).</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty easy">Easy</span>
+                                <span class="duration">25 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank">
-                        <h3>Arrays, Pointers & Functions</h3>
-                        <p>Practice with matrix operations, recursion, and pointer manipulation.</p>
+                <li>
+                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Arrays, Pointers & Functions</h3>
+                            <p>Practice with matrix operations, recursion, and pointer manipulation in C.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">40 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank">
-                        <h3>File Handling</h3>
-                        <p>Implement programs to create, copy, merge, and modify text and binary files.</p>
+                <li>
+                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>File Handling</h3>
+                            <p>Implement programs to create, copy, merge, and modify text and binary files.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">35 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank">
-                        <h3>Strings</h3>
-                        <p>Implement functions for string manipulation like palindrome checks and substring insertion.</p>
+                <li>
+                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Strings</h3>
+                            <p>Implement functions for string manipulation like palindrome checks and substring insertion.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">30 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
-                 <li>
-                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank">
-                        <h3>Sorting & Searching</h3>
-                        <p>Implement algorithms like Linear Search, Binary Search, Bubble Sort, and Selection Sort.</p>
+                <li>
+                    <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Sorting & Searching</h3>
+                            <p>Implement algorithms like Linear Search, Binary Search, Bubble Sort, and Selection Sort.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty hard">Hard</span>
+                                <span class="duration">45 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
             </ul>
         </main>
 
         <footer class="site-footer">
-            <p>&copy; 2025 JNTU Virtual Labs. Built by JNTUH UCES Cyber Security students.</p>
+            <div class="footer-content">
+                <p>&copy; 2025 JNTU Virtual Labs. Built with ❤️ by JNTUH UCES Cyber Security students.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
         </footer>
     </div>
     <script src="script.js"></script>

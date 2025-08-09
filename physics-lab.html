@@ -3,66 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Applied Physics Laboratory - Virtual experiments for wave optics, mechanics, and electromagnetism. Access interactive simulations for JNTU R25 curriculum.">
+    <meta name="keywords" content="Applied Physics, Virtual Lab, Photoelectric Effect, Hall Effect, LCR Circuit, BJT, LED, Solar Cell, JNTU">
     <title>Applied Physics Lab | JNTU Virtual Labs</title>
-    <link rel="stylesheet" href="style-labs.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style-lab.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.js" as="script">
 </head>
 <body>
     <div class="content-wrapper">
         <header class="lab-header">
-            <a href="index.html" class="back-button">
+            <a href="index.html" class="back-button" aria-label="Back to home">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 Back to Home
             </a>
             <h1 class="lab-title">Applied Physics Laboratory</h1>
-            <p class="lab-subtitle">Click on an experiment to open the virtual lab environment.</p>
+            <p class="lab-subtitle">Explore wave optics, mechanics, and electromagnetism experiments with interactive simulations</p>
+            <div class="lab-stats">
+                <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Experiments</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Virtual</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
         </header>
 
         <main class="container">
+            <div class="experiment-header">
+                <h2>Available Experiments</h2>
+                <p>Click on any experiment to open the virtual lab environment</p>
+            </div>
+            
             <ul class="experiment-list">
                 <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=195&sim=840&cnt=4" target="_blank">
-                        <h3>Photoelectric Effect</h3>
-                        <p>To determine the work function and Planck's constant.</p>
+                    <a href="https://vlab.co.in/?sub=1&brch=195&sim=840&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Photoelectric Effect</h3>
+                            <p>To determine the work function and Planck's constant using the photoelectric effect.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty easy">Easy</span>
+                                <span class="duration">30 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </div>
                     </a>
                 </li>
                 <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=195&sim=354&cnt=4" target="_blank">
-                        <h3>Hall Effect Experiment</h3>
-                        <p>To determine the Hall co-efficient and carrier concentration of a semiconductor.</p>
-                    </a>
-                </li>
-                 <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=75&sim=333&cnt=4" target="_blank">
-                        <h3>LCR Circuit Analysis</h3>
-                        <p>To study the characteristics of series and parallel LCR circuits.</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=282&sim=1512&cnt=4" target="_blank">
-                        <h3>P-N Junction & Zener Diode</h3>
-                        <p>To study the V-I characteristics of a p-n junction and Zener diode.</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=282&sim=1510&cnt=4" target="_blank">
-                        <h3>Bipolar Junction Transistor (BJT)</h3>
-                        <p>To study the input and output characteristics of a BJT in CE configuration.</p>
+                    <a href="https://vlab.co.in/?sub=1&brch=195&sim=354&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Hall Effect Experiment</h3>
+                            <p>To determine the Hall co-efficient and carrier concentration of a semiconductor.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">45 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21,15 16,10 5,21"></polyline>
+                            </svg>
+                        </div>
                     </a>
                 </li>
                 <li>
-                    <a href="https://vlab.co.in/?sub=1&brch=282&sim=1509&cnt=4" target="_blank">
-                        <h3>LED & Solar Cell Characteristics</h3>
-                        <p>To study the V-I characteristics of a Light Emitting Diode and a Solar Cell.</p>
+                    <a href="https://vlab.co.in/?sub=1&brch=75&sim=333&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>LCR Circuit Analysis</h3>
+                            <p>To study the characteristics of series and parallel LCR circuits and resonance phenomena.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">40 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M5 12H3"></path>
+                                <path d="M21 12h-2"></path>
+                                <path d="m18.36 5.64-.95.96"></path>
+                                <path d="m6.6 17.41-.96.95"></path>
+                                <path d="m18.36 18.36-.95-.95"></path>
+                                <path d="m6.6 6.6-.96-.95"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                            </svg>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://vlab.co.in/?sub=1&brch=282&sim=1512&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>P-N Junction & Zener Diode</h3>
+                            <p>To study the V-I characteristics of a p-n junction and Zener diode under forward and reverse bias.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty hard">Hard</span>
+                                <span class="duration">50 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M5 12H3"></path>
+                                <path d="M21 12h-2"></path>
+                                <path d="m18.36 5.64-.95.96"></path>
+                                <path d="m6.6 17.41-.96.95"></path>
+                                <path d="m18.36 18.36-.95-.95"></path>
+                                <path d="m6.6 6.6-.96-.95"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 16a4 4 0 0 1-4-4h8a4 4 0 0 1-4 4Z"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://vlab.co.in/?sub=1&brch=282&sim=1510&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>Bipolar Junction Transistor (BJT)</h3>
+                            <p>To study the input and output characteristics of a BJT in Common Emitter configuration.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty hard">Hard</span>
+                                <span class="duration">60 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M5 12H3"></path>
+                                <path d="M21 12h-2"></path>
+                                <path d="m18.36 5.64-.95.96"></path>
+                                <path d="m6.6 17.41-.96.95"></path>
+                                <path d="m18.36 18.36-.95-.95"></path>
+                                <path d="m6.6 6.6-.96-.95"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 16a4 4 0 0 1-4-4h8a4 4 0 0 1-4 4Z"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://vlab.co.in/?sub=1&brch=282&sim=1509&cnt=4" target="_blank" rel="noopener noreferrer">
+                        <div class="experiment-content">
+                            <h3>LED & Solar Cell Characteristics</h3>
+                            <p>To study the V-I characteristics of a Light Emitting Diode and a Solar Cell.</p>
+                            <div class="experiment-meta">
+                                <span class="difficulty medium">Medium</span>
+                                <span class="duration">35 min</span>
+                            </div>
+                        </div>
+                        <div class="experiment-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </div>
                     </a>
                 </li>
             </ul>
         </main>
 
         <footer class="site-footer">
-            <p>&copy; 2025 JNTU Virtual Labs. Built by JNTUH UCES Cyber Security students.</p>
+            <div class="footer-content">
+                <p>&copy; 2025 JNTU Virtual Labs. Built with ❤️ by JNTUH UCES Cyber Security students.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
         </footer>
     </div>
     <script src="script.js"></script>

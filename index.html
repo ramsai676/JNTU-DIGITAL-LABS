@@ -3,62 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JNTU Virtual Labs - The ultimate R25 portal for students. Access all first-year laboratory experiments with interactive simulations and virtual environments.">
+    <meta name="keywords" content="JNTU, Virtual Labs, Engineering, Physics, Chemistry, Programming, Python, C Programming, Electrical Engineering, IT Workshop, ELCS">
+    <meta name="author" content="JNTUH UCES Cyber Security Students">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="JNTU Virtual Labs | The Ultimate Student Portal">
+    <meta property="og:description" content="Access all first-year JNTU R25 virtual lab experiments with interactive simulations and virtual environments.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jntu-virtual-labs.com">
+    <meta property="og:image" content="https://jntu-virtual-labs.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JNTU Virtual Labs | The Ultimate Student Portal">
+    <meta name="twitter:description" content="Access all first-year JNTU R25 virtual lab experiments with interactive simulations and virtual environments.">
+    
     <title>JNTU Virtual Labs | The Ultimate Student Portal</title>
+    
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.js" as="script">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 </head>
 <body>
+
+    <!-- Loading indicator -->
+    <div id="loading-indicator">
+        <div style="text-align: center; color: var(--text-primary);">
+            <div class="spinner"></div>
+            <p>Loading JNTU Virtual Labs...</p>
+        </div>
+    </div>
 
     <!-- The animated background -->
     <div id="vanta-background"></div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="navbar-container container">
-            <a href="#" class="logo">JNTU <strong>Virtual Labs</strong></a>
-            <ul class="nav-menu">
-                <li><a href="#labs" class="nav-link">Labs</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
+            <a href="#" class="logo" aria-label="JNTU Virtual Labs Home">
+                <span class="logo-icon">🔬</span>
+                JNTU <strong>Virtual Labs</strong>
+            </a>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#labs" class="nav-link" role="menuitem">Labs</a></li>
+                <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content Wrapper -->
     <div class="content-wrapper">
-        <header class="hero">
+        <header class="hero" role="banner">
             <div class="hero-content">
                 <h1 class="hero-title animate-pop-in">JNTU VIRTUAL LABS</h1>
-                <p class="hero-subtitle animate-pop-in" style="animation-delay: 0.2s;">The ultimate R25 portal for students.</p>
-                <a href="#labs" class="cta-button animate-pop-in" style="animation-delay: 0.4s;">Explore Labs</a>
+                <p class="hero-subtitle animate-pop-in" style="animation-delay: 0.2s;">
+                    The ultimate R25 portal for students. Access all first-year laboratory experiments with interactive simulations and virtual environments.
+                </p>
+                <div class="hero-buttons animate-pop-in" style="animation-delay: 0.4s;">
+                    <a href="#labs" class="cta-button primary">
+                        <span>Explore Labs</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#about" class="cta-button secondary">
+                        <span>Learn More</span>
+                    </a>
+                </div>
             </div>
         </header>
 
-        <main class="container">
+        <main class="container" role="main">
             <section id="labs" class="lab-section">
                 <h2 class="section-title animate-fade-in">First Year Laboratories</h2>
+                <p class="section-subtitle animate-fade-in">
+                    Comprehensive virtual laboratory experiences designed to enhance your practical learning
+                </p>
                 <div class="lab-grid">
                     <!-- Cards are dynamically inserted by JavaScript -->
+                    <!-- Fallback content if JavaScript fails -->
+                    <div class="lab-grid-fallback" style="display: none; text-align: center; padding: 2rem;">
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Loading lab cards...</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                            <a href="physics-lab.html" class="card">
+                                <div class="card-icon" style="color: #6366f1;">🔬</div>
+                                <h2 class="card-title">Applied Physics Laboratory</h2>
+                                <p class="card-description">Explore wave optics, mechanics, and electromagnetism experiments with interactive simulations.</p>
+                            </a>
+                            <a href="chemistry-lab.html" class="card">
+                                <div class="card-icon" style="color: #8b5cf6;">🧪</div>
+                                <h2 class="card-title">Engineering Chemistry Laboratory</h2>
+                                <p class="card-description">Practice with virtual titrations, reactions, and molecular structures in a safe environment.</p>
+                            </a>
+                            <a href="bee-lab.html" class="card">
+                                <div class="card-icon" style="color: #3b82f6;">⚡</div>
+                                <h2 class="card-title">Basic Electrical Engineering Lab</h2>
+                                <p class="card-description">Verify circuit laws and theorems like KVL, KCL, and Thevenin's with virtual components.</p>
+                            </a>
+                            <a href="pps-lab.html" class="card">
+                                <div class="card-icon" style="color: #06b6d4;">💻</div>
+                                <h2 class="card-title">Problem Solving Lab (PPS)</h2>
+                                <p class="card-description">Write, compile, and test your C programs in a powerful online IDE with real-time feedback.</p>
+                            </a>
+                            <a href="python-lab.html" class="card">
+                                <div class="card-icon" style="color: #f59e0b;">🐍</div>
+                                <h2 class="card-title">Python Programming Laboratory</h2>
+                                <p class="card-description">Practice with data types, control flow, functions, and file operations in Python.</p>
+                            </a>
+                            <a href="it-workshop.html" class="card">
+                                <div class="card-icon" style="color: #10b981;">🖥️</div>
+                                <h2 class="card-title">IT Workshop</h2>
+                                <p class="card-description">Explore essential IT tools, hardware, and networking concepts with hands-on simulations.</p>
+                            </a>
+                            <a href="elcs-lab.html" class="card">
+                                <div class="card-icon" style="color: #ef4444;">🎤</div>
+                                <h2 class="card-title">ELCS Laboratory</h2>
+                                <p class="card-description">Improve communication with phonetics, JAM sessions, and group discussions.</p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="about" class="about-section animate-fade-in">
                 <h2 class="section-title">About This Project</h2>
-                <p>This portal was created to provide a single, centralized, and easy-to-use hub for all first-year JNTU R25 virtual lab experiments. Our goal is to simplify access to quality resources, helping students master their practicals from anywhere, anytime.</p>
+                <div class="about-content">
+                    <p>
+                        This portal was created to provide a single, centralized, and easy-to-use hub for all first-year JNTU R25 virtual lab experiments. 
+                        Our goal is to simplify access to quality resources, helping students master their practicals from anywhere, anytime.
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-icon">🚀</div>
+                            <h3>Easy Access</h3>
+                            <p>One-click access to all laboratory experiments</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🔬</div>
+                            <h3>Interactive</h3>
+                            <p>Engage with virtual simulations and experiments</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📱</div>
+                            <h3>Responsive</h3>
+                            <p>Works perfectly on all devices and screen sizes</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Focused</h3>
+                            <p>Specifically designed for JNTU R25 curriculum</p>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
 
-        <footer class="site-footer">
-            <p>&copy; 2025 JNTU Virtual Labs. Built by JNTUH UCES Cyber Security students.</p>
+        <footer class="site-footer" role="contentinfo">
+            <div class="footer-content">
+                <p>&copy; 2025 JNTU Virtual Labs. Built with Passion by JNTUH UCES Cyber Security students.</p>
+                <div class="footer-links">
+                    <a href="#labs">Labs</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
         </footer>
     </div>
 
-    <!-- Vanta.js for the animated background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
-    <!-- Main script file -->
+    <!-- Scripts -->
+    <script>
+        // Fallback for when external scripts fail
+        window.VANTA = window.VANTA || {};
+        window.VANTA.WAVES = window.VANTA.WAVES || function() {
+            console.log('Vanta.js not available, using fallback background');
+            return null;
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" onerror="console.log('Three.js failed to load')"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js" onerror="console.log('Vanta.js failed to load')"></script>
     <script src="script.js"></script>
 </body>
 </html>
