@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 JNTU Virtual Labs - Enhanced JavaScript Loading...');
+    console.log('🚀 JNTU Digital Labs - Enhanced JavaScript Loading...');
 
     // --- PART 1: DYNAMIC LAB CARD INJECTION (Homepage only) ---
     const labGrid = document.querySelector('.lab-grid');
@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    console.log('🚀 JNTU Virtual Labs - Enhanced JavaScript Loaded Successfully!');
+    console.log('🚀 JNTU Digital Labs - Enhanced JavaScript Loaded Successfully!');
 });
 
 // --- ADDITIONAL STYLES FOR NEW FEATURES ---
