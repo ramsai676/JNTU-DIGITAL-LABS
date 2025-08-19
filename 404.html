@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found - JNTU Digital Labs">
+    <title>404 - Page Not Found | JNTU Digital Labs</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="error-container">
+            <div class="error-content">
+                <div class="error-icon">🔬</div>
+                <h1 class="error-title">404</h1>
+                <h2 class="error-subtitle">Page Not Found</h2>
+                <p class="error-description">
+                    Oops! The experiment you're looking for seems to have wandered off. 
+                    Don't worry, there are plenty of other fascinating experiments waiting for you.
+                </p>
+                
+                <div class="error-actions">
+                    <a href="/" class="cta-button primary">
+                        <span>Back to Home</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                        </svg>
+                    </a>
+                    <a href="/physics-lab.html" class="cta-button secondary">
+                        <span>Explore Physics Lab</span>
+                    </a>
+                </div>
+                
+                <div class="error-suggestions">
+                    <h3>Popular Experiments</h3>
+                    <div class="suggestion-grid">
+                        <a href="/physics-lab.html" class="suggestion-card">
+                            <span class="suggestion-icon">🔬</span>
+                            <span class="suggestion-text">Physics Lab</span>
+                        </a>
+                        <a href="/chemistry-lab.html" class="suggestion-card">
+                            <span class="suggestion-icon">🧪</span>
+                            <span class="suggestion-text">Chemistry Lab</span>
+                        </a>
+                        <a href="/python-lab.html" class="suggestion-card">
+                            <span class="suggestion-icon">🐍</span>
+                            <span class="suggestion-text">Python Lab</span>
+                        </a>
+                        <a href="/pps-lab.html" class="suggestion-card">
+                            <span class="suggestion-icon">💻</span>
+                            <span class="suggestion-text">C Programming</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .error-content {
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3rem;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        .error-title {
+            font-size: 6rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 0;
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .error-subtitle {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 1rem 0;
+        }
+
+        .error-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .error-suggestions h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .suggestion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .suggestion-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .suggestion-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .suggestion-icon {
+            font-size: 1.5rem;
+        }
+
+        .suggestion-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .error-title {
+                font-size: 4rem;
+            }
+
+            .error-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .suggestion-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+    <script>
+        // Simple script for the 404 page
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🔬 404 Page Loaded');
+            
+            // Add some interactivity
+            const errorIcon = document.querySelector('.error-icon');
+            errorIcon.addEventListener('click', () => {
+                errorIcon.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    errorIcon.style.transform = '';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
+
+

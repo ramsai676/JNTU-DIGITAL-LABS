@@ -1,0 +1,144 @@
+{
+  "name": "jntu-digital-labs",
+  "version": "2.0.0",
+  "description": "The ultimate R25 portal for JNTU students. Access all first-year laboratory experiments with interactive simulations and virtual environments.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linter configured'",
+    "format": "echo 'No formatter configured'",
+    "deploy": "echo 'Deploy to your hosting service'",
+    "validate": "echo 'Validating HTML...' && npx html-validate *.html",
+    "lighthouse": "echo 'Run Lighthouse audit' && npx lighthouse http://localhost:8000 --output html --output-path ./lighthouse-report.html",
+    "pwa": "echo 'PWA manifest and service worker are ready'",
+    "security": "echo 'Security headers configured in security-headers.txt'",
+    "preinstall": "echo 'Installing JNTU Digital Labs...'",
+    "postinstall": "echo 'JNTU Digital Labs installed successfully!'",
+    "prepublishOnly": "echo 'Preparing to publish...'",
+    "prepack": "echo 'Preparing package...'",
+    "postpack": "echo 'Package prepared successfully!'"
+  },
+  "keywords": [
+    "jntu",
+    "virtual-labs",
+    "engineering",
+    "education",
+    "physics",
+    "chemistry",
+    "programming",
+    "python",
+    "c-programming",
+    "electrical-engineering",
+    "it-workshop",
+    "elcs",
+    "pwa",
+    "progressive-web-app",
+    "virtual-experiments",
+    "interactive-simulations"
+  ],
+  "author": "JNTUH UCES Cyber Security Students",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/jntu-digital-labs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/jntu-digital-labs/issues"
+  },
+  "homepage": "https://jntu-digital-labs.com",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "devDependencies": {
+    "html-validate": "^8.0.0",
+    "lighthouse": "^11.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "pwa": {
+    "name": "JNTU Digital Labs",
+    "short_name": "JNTU Labs",
+    "description": "The ultimate R25 portal for JNTU students",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a1a",
+    "theme_color": "#6366f1",
+    "icons": [
+      {
+        "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>",
+        "sizes": "any",
+        "type": "image/svg+xml"
+      }
+    ]
+  },
+  "config": {
+    "port": 8000,
+    "host": "localhost"
+  },
+  "files": [
+    "*.html",
+    "*.css",
+    "*.js",
+    "*.json",
+    "*.txt",
+    "*.xml",
+    "manifest.json",
+    "service-worker.js",
+    "robots.txt",
+    "sitemap.xml",
+    "404.html",
+    "security-headers.txt",
+    "README.md"
+  ],
+  "directories": {
+    "lib": "./",
+    "bin": "./",
+    "man": "./",
+    "doc": "./",
+    "example": "./"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/your-username"
+  },
+  "contributors": [
+    {
+      "name": "JNTUH UCES Cyber Security Students",
+      "email": "support@jntu-digital-labs.com"
+    }
+  ],
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": [],
+  "overrides": {},
+  "resolutions": {},
+  "workspaces": [],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "preferGlobal": false,
+  "bin": {},
+  "man": []
+}
+
+

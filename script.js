@@ -1,3 +1,90 @@
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then((registration) => {
+                console.log('✅ Service Worker registered successfully:', registration.scope);
+                
+                // Check for updates
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // New content is available
+                            showUpdateNotification();
+                        }
+                    });
+                });
+            })
+            .catch((error) => {
+                console.error('❌ Service Worker registration failed:', error);
+            });
+    });
+}
+
+// Show update notification
+function showUpdateNotification() {
+    const notification = document.createElement('div');
+    notification.className = 'update-notification';
+    notification.innerHTML = `
+        <div class="update-content">
+            <span>🔄 New version available!</span>
+            <button onclick="location.reload()">Update Now</button>
+            <button onclick="this.parentElement.parentElement.remove()">Later</button>
+        </div>
+    `;
+    document.body.appendChild(notification);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 10000);
+}
+
+// PWA Install Prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    showInstallPrompt();
+});
+
+function showInstallPrompt() {
+    const installButton = document.createElement('div');
+    installButton.className = 'install-prompt';
+    installButton.innerHTML = `
+        <div class="install-content">
+            <span>📱 Install JNTU Digital Labs</span>
+            <button onclick="installApp()">Install</button>
+            <button onclick="this.parentElement.parentElement.remove()">Not Now</button>
+        </div>
+    `;
+    document.body.appendChild(installButton);
+    
+    // Auto-remove after 15 seconds
+    setTimeout(() => {
+        if (installButton.parentElement) {
+            installButton.remove();
+        }
+    }, 15000);
+}
+
+function installApp() {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('✅ User accepted the install prompt');
+            } else {
+                console.log('❌ User dismissed the install prompt');
+            }
+            deferredPrompt = null;
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 JNTU Digital Labs - Enhanced JavaScript Loading...');
 
@@ -135,7 +222,53 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 
-    // --- PART 3: NAVBAR SCROLL EFFECT ---
+    // --- PART 3: MOBILE MENU FUNCTIONALITY ---
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close mobile menu when clicking on nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // --- PART 4: NAVBAR SCROLL EFFECT ---
     const navbar = document.querySelector('.navbar');
     if (navbar) {
         let lastScrollY = window.scrollY;
@@ -149,18 +282,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 navbar.classList.remove('scrolled');
             }
             
-            // Hide/show navbar on scroll
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
+            // Hide/show navbar on scroll (but not on mobile when menu is open)
+            if (!navMenu || !navMenu.classList.contains('active')) {
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
             }
             
             lastScrollY = currentScrollY;
         });
     }
 
-    // --- PART 4: SCROLL REVEAL ANIMATIONS ---
+    // --- PART 5: SCROLL REVEAL ANIMATIONS ---
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -179,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- PART 5: SMOOTH PAGE TRANSITIONS ---
+    // --- PART 6: SMOOTH PAGE TRANSITIONS ---
     const pageLinks = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="http"]):not([href^="mailto:"]):not([href^="tel:"])');
     pageLinks.forEach(link => {
         link.addEventListener('click', function (e) {
@@ -208,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- PART 6: CARD HOVER EFFECTS ---
+    // --- PART 7: CARD HOVER EFFECTS ---
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -220,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- PART 7: PARALLAX EFFECT FOR HERO SECTION ---
+    // --- PART 8: PARALLAX EFFECT FOR HERO SECTION ---
     const hero = document.querySelector('.hero');
     if (hero) {
         window.addEventListener('scroll', () => {
@@ -230,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- PART 8: TYPING ANIMATION FOR HERO TITLE ---
+    // --- PART 9: TYPING ANIMATION FOR HERO TITLE ---
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle && !heroTitle.dataset.animated) {
         heroTitle.dataset.animated = 'true';
@@ -250,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(typeWriter, 500);
     }
 
-    // --- PART 9: EXPERIMENT LIST ENHANCEMENTS (Lab pages) ---
+    // --- PART 10: EXPERIMENT LIST ENHANCEMENTS (Lab pages) ---
     const experimentLinks = document.querySelectorAll('.experiment-list a');
     experimentLinks.forEach((link, index) => {
         link.addEventListener('mouseenter', function() {
@@ -276,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- PART 10: PERFORMANCE OPTIMIZATIONS ---
+    // --- PART 11: PERFORMANCE OPTIMIZATIONS ---
     // Lazy load images if any
     const images = document.querySelectorAll('img[data-src]');
     const imageObserver = new IntersectionObserver((entries) => {
@@ -292,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     images.forEach(img => imageObserver.observe(img));
 
-    // --- PART 11: ACCESSIBILITY ENHANCEMENTS ---
+    // --- PART 12: ACCESSIBILITY ENHANCEMENTS ---
     // Add keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Tab') {
@@ -304,12 +439,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('keyboard-navigation');
     });
 
-    // --- PART 12: ERROR HANDLING ---
+    // --- PART 13: ERROR HANDLING ---
     window.addEventListener('error', (e) => {
         console.error('Page error:', e.error);
     });
 
-    // --- PART 13: ANALYTICS READY (if needed) ---
+    // --- PART 14: ANALYTICS READY (if needed) ---
     const trackEvent = (eventName, data = {}) => {
         if (typeof gtag !== 'undefined') {
             gtag('event', eventName, data);
@@ -334,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- PART 14: BODY LOADING ANIMATION ---
+    // --- PART 15: BODY LOADING ANIMATION ---
     const loadingIndicator = document.getElementById('loading-indicator');
     if (loadingIndicator) {
         // Hide loading indicator after a short delay
@@ -351,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('loaded');
     }, 100);
 
-    // --- PART 15: ENHANCED BUTTON FUNCTIONALITY ---
+    // --- PART 16: ENHANCED BUTTON FUNCTIONALITY ---
     // Ensure smooth scrolling for all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -429,7 +564,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- PART 17: OFFLINE/ONLINE DETECTION ---
+    function updateOnlineStatus() {
+        if (navigator.onLine) {
+            const offlineIndicator = document.querySelector('.offline-indicator');
+            if (offlineIndicator) {
+                offlineIndicator.remove();
+            }
+        } else {
+            if (!document.querySelector('.offline-indicator')) {
+                const offlineIndicator = document.createElement('div');
+                offlineIndicator.className = 'offline-indicator';
+                offlineIndicator.innerHTML = '📡 You are currently offline. Some features may be limited.';
+                document.body.appendChild(offlineIndicator);
+            }
+        }
+    }
+
+    // Listen for online/offline events
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    
+    // Check initial status
+    updateOnlineStatus();
+
+    // --- PART 18: PERFORMANCE MONITORING ---
+    if ('performance' in window) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+                console.log(`📊 Page load time: ${loadTime}ms`);
+                
+                // Track Core Web Vitals if available
+                if ('web-vital' in window) {
+                    // Core Web Vitals tracking
+                    console.log('📊 Core Web Vitals tracking enabled');
+                }
+            }, 0);
+        });
+    }
+
+    // --- PART 19: ERROR BOUNDARY ---
+    window.addEventListener('error', (event) => {
+        console.error('❌ Global error caught:', event.error);
+        // You could send this to an analytics service
+    });
+
+    window.addEventListener('unhandledrejection', (event) => {
+        console.error('❌ Unhandled promise rejection:', event.reason);
+        // You could send this to an analytics service
+    });
+
     console.log('🚀 JNTU Digital Labs - Enhanced JavaScript Loaded Successfully!');
+    console.log('🔧 Version: 2.0 | PWA: Enabled | Service Worker: Active');
 });
 
 // --- ADDITIONAL STYLES FOR NEW FEATURES ---
@@ -493,6 +681,140 @@ const additionalStyles = `
         outline-offset: 2px;
     }
 
+    /* PWA Update Notification */
+    .update-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(99, 102, 241, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 1rem;
+        z-index: 10000;
+        animation: slideInRight 0.3s ease-out;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .update-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: white;
+        font-weight: 500;
+    }
+
+    .update-content button {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 0.9rem;
+    }
+
+    .update-content button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-1px);
+    }
+
+    /* PWA Install Prompt */
+    .install-prompt {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(10, 10, 26, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 12px;
+        padding: 1rem;
+        z-index: 10000;
+        animation: slideInUp 0.3s ease-out;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .install-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: white;
+        font-weight: 500;
+    }
+
+    .install-content button {
+        background: var(--primary-gradient);
+        border: none;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .install-content button:last-child {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .install-content button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Offline Indicator */
+    .offline-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #ef4444;
+        color: white;
+        text-align: center;
+        padding: 0.5rem;
+        z-index: 10001;
+        font-weight: 500;
+        animation: slideInDown 0.3s ease-out;
+    }
+
+    /* Animations */
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            transform: translateX(-50%) translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInDown {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
@@ -512,6 +834,33 @@ const additionalStyles = `
 
     .navbar {
         transition: var(--transition), transform 0.3s ease;
+    }
+
+    /* Responsive PWA notifications */
+    @media (max-width: 768px) {
+        .update-notification {
+            top: 10px;
+            right: 10px;
+            left: 10px;
+            transform: none;
+        }
+
+        .update-content {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .install-prompt {
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            transform: none;
+        }
+
+        .install-content {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
     }
 `;
 

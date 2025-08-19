@@ -10,13 +10,14 @@
     <meta property="og:title" content="JNTU Digital Labs | The Ultimate Student Portal">
     <meta property="og:description" content="Access all first-year JNTU R25 virtual lab experiments with interactive simulations and virtual environments.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jntu-virtual-labs.com">
-    <meta property="og:image" content="https://jntu-virtual-labs.com/og-image.jpg">
+    <meta property="og:url" content="https://jntu-digital-labs.com">
+    <meta property="og:image" content="https://jntu-digital-labs.com/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="JNTU Digital Labs | The Ultimate Student Portal">
     <meta name="twitter:description" content="Access all first-year JNTU R25 virtual lab experiments with interactive simulations and virtual environments.">
     
     <title>JNTU Digital Labs | The Ultimate Student Portal</title>
+    <script>document.documentElement.classList.add('js');</script>
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
@@ -28,10 +29,82 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="JNTU Digital Labs">
+    
     <!-- Preload critical resources -->
     <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://vlab.co.in">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "JNTU Digital Labs",
+      "description": "The ultimate R25 portal for JNTU students. Access all first-year laboratory experiments with interactive simulations and virtual environments.",
+      "url": "https://jntu-digital-labs.com",
+      "sameAs": [
+        "https://github.com/jntu-digital-labs"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "support@jntu-digital-labs.com"
+      },
+      "offers": {
+        "@type": "Offer",
+        "description": "Free access to virtual laboratory experiments",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "hasCourse": [
+        {
+          "@type": "Course",
+          "name": "Applied Physics Laboratory",
+          "description": "Virtual experiments for wave optics, mechanics, and electromagnetism"
+        },
+        {
+          "@type": "Course",
+          "name": "Engineering Chemistry Laboratory",
+          "description": "Virtual titrations, reactions, and molecular structures"
+        },
+        {
+          "@type": "Course",
+          "name": "Basic Electrical Engineering Lab",
+          "description": "Circuit laws and theorems verification"
+        },
+        {
+          "@type": "Course",
+          "name": "Problem Solving Lab (PPS)",
+          "description": "C programming with online IDE"
+        },
+        {
+          "@type": "Course",
+          "name": "Python Programming Laboratory",
+          "description": "Python programming with data types and control flow"
+        },
+        {
+          "@type": "Course",
+          "name": "IT Workshop",
+          "description": "IT tools, hardware, and networking concepts"
+        },
+        {
+          "@type": "Course",
+          "name": "ELCS Laboratory",
+          "description": "Communication skills and phonetics"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -53,6 +126,11 @@
                 <span class="logo-icon">🔬</span>
                 JNTU <strong>Digital Labs</strong>
             </a>
+            <div class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-menu" role="menubar">
                 <li role="none"><a href="#labs" class="nav-link" role="menuitem">Labs</a></li>
                 <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
@@ -188,8 +266,18 @@
             return null;
         };
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" onerror="console.log('Three.js failed to load')"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js" onerror="console.log('Vanta.js failed to load')"></script>
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer onerror="console.log('Three.js failed to load')"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js" defer onerror="console.log('Vanta.js failed to load')"></script>
+    <script src="script.js" defer></script>
+    <noscript>
+        <style>
+            /* Ensure visibility when JS is disabled */
+            .lab-grid-fallback { display: block !important; }
+            body { opacity: 1 !important; }
+        </style>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+            <p style="color: var(--text-secondary); text-align:center; margin: 1rem 0;">JavaScript is disabled. The interactive features are unavailable, but core links are provided below.</p>
+        </div>
+    </noscript>
 </body>
 </html>

@@ -1,0 +1,44 @@
+# JNTU Digital Labs - Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://jntu-digital-labs.com/sitemap.xml
+
+# Crawl delay (optional - be respectful to servers)
+Crawl-delay: 1
+
+# Disallow specific paths (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow important files
+Allow: /manifest.json
+Allow: /service-worker.js
+Allow: /*.css
+Allow: /*.js
+Allow: /*.html
+
+# Block unnecessary file types
+Disallow: /*.json$
+Disallow: /*.txt$
+Disallow: /*.md$
+
+# Block potential security files
+Disallow: /.git/
+Disallow: /.env
+Disallow: /config/
+Disallow: /logs/
+
+# Allow all lab pages
+Allow: /physics-lab.html
+Allow: /chemistry-lab.html
+Allow: /bee-lab.html
+Allow: /pps-lab.html
+Allow: /python-lab.html
+Allow: /it-workshop.html
+Allow: /elcs-lab.html
+
+

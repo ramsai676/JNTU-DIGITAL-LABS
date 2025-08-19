@@ -1,0 +1,90 @@
+# JNTU Digital Labs - Security Headers Configuration
+# Copy these headers to your web server configuration
+
+# Content Security Policy (CSP)
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://vlab.co.in; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://vlab.co.in https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; frame-src https://vlab.co.in; object-src 'none'; base-uri 'self'; form-action 'self';
+
+# X-Frame-Options (Prevent clickjacking)
+X-Frame-Options: DENY
+
+# X-Content-Type-Options (Prevent MIME type sniffing)
+X-Content-Type-Options: nosniff
+
+# X-XSS-Protection (Enable XSS filtering)
+X-XSS-Protection: 1; mode=block
+
+# Referrer Policy
+Referrer-Policy: strict-origin-when-cross-origin
+
+# Permissions Policy (formerly Feature Policy)
+Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
+
+# Strict-Transport-Security (HSTS)
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Cross-Origin Embedder Policy
+Cross-Origin-Embedder-Policy: require-corp
+
+# Cross-Origin Opener Policy
+Cross-Origin-Opener-Policy: same-origin
+
+# Cross-Origin Resource Policy
+Cross-Origin-Resource-Policy: same-origin
+
+# Cache Control Headers
+Cache-Control: public, max-age=31536000, immutable
+
+# For HTML files
+# Cache-Control: no-cache, no-store, must-revalidate
+
+# For CSS and JS files
+# Cache-Control: public, max-age=31536000, immutable
+
+# For images and other static assets
+# Cache-Control: public, max-age=31536000, immutable
+
+# Server Information (Optional - remove in production)
+# Server: JNTU-Digital-Labs/2.0
+
+# Apache .htaccess Example:
+# <IfModule mod_headers.c>
+#     Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://vlab.co.in; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://vlab.co.in https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; frame-src https://vlab.co.in; object-src 'none'; base-uri 'self'; form-action 'self';"
+#     Header always set X-Frame-Options "DENY"
+#     Header always set X-Content-Type-Options "nosniff"
+#     Header always set X-XSS-Protection "1; mode=block"
+#     Header always set Referrer-Policy "strict-origin-when-cross-origin"
+#     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+#     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+#     Header always set Cross-Origin-Embedder-Policy "require-corp"
+#     Header always set Cross-Origin-Opener-Policy "same-origin"
+#     Header always set Cross-Origin-Resource-Policy "same-origin"
+# </IfModule>
+
+# Nginx Example:
+# add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://vlab.co.in; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://vlab.co.in https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; frame-src https://vlab.co.in; object-src 'none'; base-uri 'self'; form-action 'self';" always;
+# add_header X-Frame-Options "DENY" always;
+# add_header X-Content-Type-Options "nosniff" always;
+# add_header X-XSS-Protection "1; mode=block" always;
+# add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+# add_header Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()" always;
+# add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+# add_header Cross-Origin-Embedder-Policy "require-corp" always;
+# add_header Cross-Origin-Opener-Policy "same-origin" always;
+# add_header Cross-Origin-Resource-Policy "same-origin" always;
+
+# Express.js Example:
+# app.use((req, res, next) => {
+#     res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://vlab.co.in; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://vlab.co.in https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; frame-src https://vlab.co.in; object-src 'none'; base-uri 'self'; form-action 'self';");
+#     res.setHeader('X-Frame-Options', 'DENY');
+#     res.setHeader('X-Content-Type-Options', 'nosniff');
+#     res.setHeader('X-XSS-Protection', '1; mode=block');
+#     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+#     res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()');
+#     res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+#     res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+#     res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+#     res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
+#     next();
+# });
+
+
