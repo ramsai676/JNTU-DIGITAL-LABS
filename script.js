@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll-based navigation highlighting
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinksScroll = document.querySelectorAll('.nav-link');
     
     if (sections.length > 0 && navLinks.length > 0) {
         window.addEventListener('scroll', () => {
@@ -555,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            navLinks.forEach(link => {
+            navLinksScroll.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
