@@ -701,6 +701,9 @@ body.loaded {
     transition: opacity 0.5s ease-out;
 }
 
+/* If JS didn't run (no .js on <html>), hide the overlay so content is visible */
+html:not(.js) #loading-indicator { display: none !important; }
+
 #loading-indicator .spinner {
     width: 40px;
     height: 40px;

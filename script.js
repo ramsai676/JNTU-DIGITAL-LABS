@@ -1,5 +1,5 @@
-// Service Worker Registration
-if ('serviceWorker' in navigator) {
+// Service Worker Registration (skip when running from file://)
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./service-worker.js')
             .then((registration) => {
