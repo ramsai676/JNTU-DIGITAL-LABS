@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostics</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; background:#111827; color:#f9fafb; }
+    .card { background:#1f2937; padding:1.5rem; border-radius:12px; border:1px solid #374151; }
+    a { color:#93c5fd; }
+  </style>
+  <!-- No external scripts, no service workers -->
+  <noscript></noscript>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; style-src 'self' 'unsafe-inline'"> 
+</head>
+<body>
+  <h1>Diagnostics Page</h1>
+  <div class="card">
+    <p>If you can read this, your browser is rendering local files correctly.</p>
+    <p>Next, open <a href="index.html">index.html</a>. If that page is blank, try serving the site on <code>http://localhost</code>:</p>
+    <pre>python -m http.server 8000</pre>
+  </div>
+</body>
+</html>
+
+
